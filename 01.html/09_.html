@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML 미디어</title>
+  </head>
+  <body>
+    <h1>HTML 미디어</h1>
+    <h2>img 태그</h2>
+    <a
+      href="https://image-notepet.akamaized.net/resize/620x-/seimage/20200320%2F96e95ed412e7dab2a5889dd604426e55.jpg"
+      target="_blank"
+      ><img src="./assets/dog_bg.jpg" alt="콜라" height="100px" />
+    </a>
+    <img src="./assets/dog_bg.jpg" alt="콜라" height="100px" />
+    <!-- 인라인속성 -->
+    <img src="./assets/dog_j.jpg" alt="재롱이" width="200px" />
+    <img
+      src="https://image-notepet.akamaized.net/resize/620x-/seimage/20200320%2F96e95ed412e7dab2a5889dd604426e55.jpg"
+      alt="재롱이"
+      width="200px"
+    />
+    <p>
+      img 태그의 src 속성에 파일의 위치를 지정한다.<br />
+      alt 속성은 이미지를 볼 수 없는 상황에서 대체할 텍스트이다.
+    </p>
+    <h2>audio 태그</h2>
+    <audio
+      src="./assets/Ice & Fire - King Canyon.mp3"
+      controls
+      muted
+      loop
+      autoplay
+    ></audio>
+    <p>
+      src 속성으로 파일의 경로를 지정한다.<br />
+      controls는 컨트롤바 유무를 지정한다.<br />
+      muted는 음소거가 된다. <br />
+      loop는 반복재생을 한다. audio 태그는 사용자 경험 때문에 자동재생을
+      브라우저가 막는다.
+    </p>
+    <video
+      src="./assets/christmas.mp4"
+      height="300px"
+      loop
+      muted
+      autoplay
+    ></video>
+    <p>
+      img 태그와 audio 태그에서 사용하는 속성을 사용하면 된다.<br />
+      음소거 상태에서는 자동재생이 가능하다.
+    </p>
+  </body>
+</html>
