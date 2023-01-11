@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+h1 {
+  position: absolute;
+  left: 20px;
+  height: 40px;
+  line-height: 40px;
+}
+#gnbList {
+  width: 240px;
+  margin: 0 auto;
+}
+#gnbList li {
+  float: left;
+}
+#gnbList li a:hover {
+  background-color: #eee;
+}
+#gnbList li a {
+  display: block;
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+main {
+  padding: 50px 0;
+  background-color: #eee;
+}
+main .imgList {
+  width: 320px;
+  margin: 0 auto;
+}
+main .imgList li {
+  float: left;
+}
+main .imgList li a {
+  display: block;
+  width: 100px;
+  height: 150px;
+  border: 1px solid #aaa;
+
+  background: center / auto 100% no-repeat;
+  transition: 0.4s;
+}
+main .imgList li:nth-child(1) a {
+  background-image: url(./assets/dog_bg.jpg);
+}
+main .imgList li:nth-child(2) a {
+  background-image: url(./assets/dog_j.jpg);
+}
+main .imgList li:nth-child(3) a {
+  background-image: url(./assets/rupong.jpg);
+}
+main .imgList li a:hover {
+  background-size: auto 120%;
+}
+main .imgList li + li {
+  margin-left: 10px;
+}
