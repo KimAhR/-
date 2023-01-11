@@ -19,11 +19,13 @@ a {
   float: left;
   background-color: red;
 }
+/* float 자식요소에 사용 */
 .clearfix::after {
   content: "";
   display: block;
   clear: both;
 }
+/* 부모요소에 clearfix 사용 */
 h1 {
   float: left;
   margin: 0;

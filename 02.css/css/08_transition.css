@@ -1,0 +1,28 @@
+.container {
+  width: 500px;
+  height: 300px;
+  border: 3px solid #000;
+  padding: 10px;
+}
+.container .box {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+
+  transition-duration: 5s, 1s;
+  /* 
+    0.25s -> 250ms  
+    변화의 지속시간
+  */
+  transition-delay: 200ms 2s; /* 속성값 변화의 지연시간 */
+  transition-property: background-color, width; /* transition을 적용하고자 하는 속성을 지정, 기본값은 all(모든 속성) */
+  transition-timing-function: ease; /* 속성값의 변화의 폭 */
+  transition: background-color 5s 2s, width 2s 1s opacity 0.5s; /* 단축속성. 속성 지속시간, 지연시간 순으로 작성 */
+  /* 속성값이 계산 가능해야 트랜지션이 동작한다. */
+}
+.container .box:hover {
+  opacity: 0;
+  width: 100px;
+  background-color: #000;
+  transition: 0s;
+}
