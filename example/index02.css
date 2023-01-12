@@ -13,11 +13,31 @@ li {
   list-style: none;
 }
 h1 {
-  position: absolute;
-  top: 0;
-  left: 20px;
+  flex-basis: 100px;
   height: 40px;
   line-height: 40px;
+}
+body {
+  padding-top: 40px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #fff;
+  padding: 0 20px;
+
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+
+  max-height: 40px;
+  overflow: hidden;
+  transition: max-height 0.4s;
+
+  z-index: 100;
 }
 #gnbList {
   display: flex;
@@ -65,4 +85,52 @@ main .imgList li + li {
 }
 .imgList li a:hover img {
   transform: scale(1.2);
+}
+
+.sideWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 40px;
+  flex-basis: 100px;
+}
+.btnSide {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  flex-direction: column;
+  /* border-radius: 50%; */
+}
+.btnSide:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.btnSide span {
+  display: block;
+
+  width: 20px;
+  height: 2px;
+
+  background-color: black;
+}
+
+.btnSide span:nth-last-of-type(2) {
+  margin: 5px 0;
+}
+
+/* 800px 보다 작으면 헤더 안보이게 */
+@media (max-width: 800px) {
+  #gnbList {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  header:hover {
+    max-height: 200px;
+  }
+  header .btnSide {
+    display: flex;
+  }
 }

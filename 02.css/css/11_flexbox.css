@@ -6,7 +6,7 @@
   flex-direction: row; /* 아이템들이 나열되는 방향을 지정한다. row(기본값,행방향),column(열방향) */
   justify-content: flex-start; /* 메인축에 대한 아이템 나열 방법*/
   align-items: flex-start; /* 교차축에 대한 아이템 나열 방법  */
-  flex-wrap: nowrap; /* 아이템들의 너비 합의 컨테이너 커졌을 때 줄바꿈을 할 것인가 지정 */
+  flex-wrap: nowrap; /* 아이템들의 너비 합의 컨테이너보다 커졌을 때 줄바꿈을 할 것인가 지정 */
 
   width: 406px;
   height: 300px;

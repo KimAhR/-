@@ -1,0 +1,145 @@
+@font-face {
+  font-family: SpeedeeK;
+  src: url(../assets/font/Speedee_K_L.woff);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: SpeedeeK;
+  src: url(../assets/font/Speedee_K_B.woff);
+}
+
+@font-face {
+  font-family: SpeedeeK;
+  src: url(../assets/font/Speedee_K_R.woff);
+}
+
+:root {
+  font-size: 10px;
+}
+
+body {
+  font-family: speedeeK;
+  font-weight: 700;
+}
+
+header {
+  background-color: #fff;
+}
+
+header .headerWrapper {
+  display: flex;
+  width: 1168px;
+  height: 140px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+
+  position: relative;
+
+  /* background-color: #ccc; */
+}
+
+#gnbList {
+  display: flex;
+}
+
+#gnbList .depth01 {
+  margin-right: 85px;
+  font-size: 2em;
+}
+
+.util {
+  display: flex;
+}
+
+.util .utilList {
+  display: flex;
+}
+
+.util .utilList li {
+  width: 80px;
+  height: 36px;
+  line-height: 36px;
+
+  border-radius: 48px;
+
+  text-align: center;
+  font-size: 1.3rem;
+
+  color: #fff;
+}
+
+.util .utilList li:nth-of-type(1) {
+  background-color: #db0007;
+}
+.util .utilList li:nth-of-type(2) {
+  margin: 0 4px;
+  background-color: #d87e00;
+}
+.util .utilList li:nth-of-type(3) {
+  background-color: #264a36;
+}
+
+.util .btnSearch {
+  margin-left: 60px;
+  cursor: pointer;
+}
+
+#banner {
+  position: relative;
+}
+
+#banner .slideList li img {
+  width: 100%;
+}
+
+#banner .btnSlide .btn {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: url(../assets/images/bg_swiper_new.png) 0 0 no-repeat;
+  cursor: pointer;
+
+  border: 1px solid black;
+}
+#banner .btnSlide .btn.prev {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+#banner .btnSlide .btn.next {
+  right: 0;
+  background-position-y: -90px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+#banner .controls {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#banner .controls .btnPlay {
+  width: 36px;
+  height: 36px;
+  background-color: black;
+  background: url(../assets/images/bg_swiper_new.png) -92px 0;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+#banner .controls .btnPlay:hover {
+  background-position-y: -36px;
+}
+
+#banner .controls .statusBar {
+  width: 200px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 5px;
+}
