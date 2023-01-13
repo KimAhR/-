@@ -39,9 +39,27 @@ header {
 
   z-index: 100;
 }
+
+header .headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 140px;
+}
+
 #gnbList {
   display: flex;
-  justify-content: center;
+  height: 140px;
+}
+
+#gnbList .depth01 {
+  margin-right: 85px;
+  font-size: 2em;
+}
+
+#gnbList .depth01 a {
+  display: block;
+  height: 100%;
 }
 
 #gnbList li a {

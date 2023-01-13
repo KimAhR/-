@@ -25,28 +25,101 @@ body {
 
 header {
   background-color: #fff;
+  position: relative;
+  z-index: 10000;
+}
+
+.wrapper {
+  max-width: 1168px;
+  margin: 0 auto;
 }
 
 header .headerWrapper {
   display: flex;
-  width: 1168px;
-  height: 140px;
   align-items: center;
   justify-content: space-between;
-  margin: 0 auto;
-
-  position: relative;
+  min-height: 140px;
 
   /* background-color: #ccc; */
 }
 
 #gnbList {
   display: flex;
+  height: 141px;
+  /* 임시 */
+  /* z-index: 100;
+  position: relative; */
+}
+
+#gnbList:hover::after {
+  display: block;
+  border-top: 1px solid #ccc;
+}
+
+#gnbList::after {
+  display: none;
+  content: "";
+  width: 100%;
+  height: 300px;
+  background-color: #fff;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: -1;
 }
 
 #gnbList .depth01 {
-  margin-right: 85px;
   font-size: 2em;
+}
+
+#gnbList .depth01 > a {
+  display: flex;
+  align-items: center;
+  margin-right: 85px;
+  height: 100%;
+
+  position: relative;
+}
+
+#gnbList:hover .depth01 > ul {
+  display: block;
+  margin-top: 1px;
+}
+
+#gnbList .depth01 > ul {
+  display: none;
+  background-color: #fff;
+}
+
+#gnbList .depth01 > ul li {
+  padding: 20px 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #999;
+}
+
+#gnbList .depth01 > ul li a {
+  padding: 5px 0;
+}
+#gnbList .depth01 > ul li a:hover {
+  color: #000;
+
+  border-bottom: 1px solid black;
+}
+
+#gnbList .depth01 > a::after {
+  display: none;
+}
+#gnbList .depth01:hover > a::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #f5bd43;
+
+  position: absolute;
+  bottom: -3px;
 }
 
 .util {
@@ -142,4 +215,162 @@ header .headerWrapper {
   height: 6px;
   background-color: #fff;
   border-radius: 5px;
+}
+#live .liveWrapper {
+  padding: 20px 0;
+}
+
+#live .liveWrapper .title {
+  font-size: 4rem;
+}
+
+#live .liveWrapper .eventList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: calc((1168px - (366px * 3)) / 2);
+  margin-top: 60px;
+}
+
+#live .liveWrapper .eventList li {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 438px;
+
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+}
+
+#live .liveWrapper .eventList li .contentBox {
+  padding: 15px;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* .moreBtn {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0 20px 0;
+} */
+
+footer {
+  background-color: #292929;
+}
+
+footer .footerWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 45px 0 55px;
+}
+
+footer .footerWrapper .footerLeft {
+  display: flex;
+  font-size: 1.4rem;
+}
+
+footer .footerWrapper .linkList {
+  width: 190px;
+  color: #fff;
+  font-weight: 500;
+}
+
+footer .footerWrapper .linkList li:nth-of-type(1) {
+  color: #ffff00;
+}
+
+footer .footerWrapper .footerLeft li + li {
+  margin-top: 10px;
+}
+
+footer .footerLeft .infoList {
+  font-weight: 400;
+  color: #999;
+}
+
+footer .footerRight .snsList {
+  display: flex;
+  align-items: center;
+}
+
+footer .footerRight .snsList li + li {
+  margin-left: 20px;
+}
+footer .footerRight .snsList li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url(../assets/images/ico_sns.png) 0 0 no-repeat;
+}
+
+footer .footerRight .snsList li:nth-child(2) a {
+  background-position-y: -40px;
+}
+
+footer .footerRight .snsList li:nth-child(3) a {
+  background-position-y: -80px;
+}
+
+footer .footerRight .snsList li:nth-child(4) a {
+  background-position-y: -120px;
+}
+
+footer .footerRight .snsList li:nth-child(5) a {
+  width: auto;
+  height: auto;
+  background: none;
+}
+
+footer .footerRight .snsList li:nth-child(5) a img {
+  height: 70px;
+}
+
+.sideBtns {
+  position: fixed;
+  right: 30px;
+  bottom: 400px;
+}
+
+.sideBtns ul li {
+  text-align: center;
+}
+
+.sideBtns ul li + li {
+  margin-top: 20px;
+}
+
+.sideBtns ul li a {
+  display: block;
+  width: 121px;
+  height: 121px;
+}
+
+.sideBtns ul li:nth-child(1) a {
+  background: url(../assets/images/btn_story_04.png) center no-repeat;
+}
+
+.sideBtns ul li:nth-child(2) a {
+  background: url(../assets/images/btn_delivery_04.png) center no-repeat;
+}
+
+.sideBtns ul li button {
+  width: 51px;
+  height: 48px;
+  cursor: pointer;
+  background: url(../assets/images/btn_top_04.png) no-repeat;
+}
+
+@media (max-width: 1168px) {
+  #live .liveWrapper {
+    max-width: 768px;
+  }
+
+  #live .liveWrapper .title {
+    text-align: center;
+  }
+}
+
+@media (max-width: 790px) {
+  #live .liveWrapper .eventList {
+    justify-content: center;
+  }
 }
