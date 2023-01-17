@@ -55,8 +55,8 @@ console.log(1 == "1"); // 동등연산자를 사용하면 숫자1과 문자열 "
 console.log(1 == true); // 동등연산자는 암묵적 형변환을 한다.
 
 // 일치 연산자 : 값과 데이터 타입 비교.
-console.log(1 === "1");
-console.log(1 === true);
+console.log(1 === "1"); // false
+console.log(1 === true); // false
 
 // 부동등, 불일치 => 동등, 일치의 반대
 console.log(1 != "1"); //두 값이 같지 않은지

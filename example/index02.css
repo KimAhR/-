@@ -40,19 +40,19 @@ header {
   z-index: 100;
 }
 
-header .headerWrapper {
+/* header .headerWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 140px;
-}
+} */
 
 #gnbList {
   display: flex;
-  height: 140px;
+  justify-content: center;
 }
 
-#gnbList .depth01 {
+/* #gnbList .depth01 {
   margin-right: 85px;
   font-size: 2em;
 }
@@ -60,7 +60,7 @@ header .headerWrapper {
 #gnbList .depth01 a {
   display: block;
   height: 100%;
-}
+} */
 
 #gnbList li a {
   display: flex;
@@ -86,19 +86,19 @@ main {
   width: 100px;
   height: 150px;
   border: 1px solid #aaa;
+  overflow: hidden;
 }
 main .imgList li + li {
   margin-left: 10px;
 }
 .imgList li a {
   display: flex;
-  height: 100%;
+
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 .imgList li a img {
-  height: 100%;
+  height: 150px;
   transition: 0.4s;
 }
 .imgList li a:hover img {
@@ -116,9 +116,9 @@ main .imgList li + li {
   display: none;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 30px;
   height: 30px;
-  flex-direction: column;
   /* border-radius: 50%; */
 }
 .btnSide:hover {
@@ -134,7 +134,7 @@ main .imgList li + li {
   background-color: black;
 }
 
-.btnSide span:nth-last-of-type(2) {
+.btnSide span:nth-child(2) {
   margin: 5px 0;
 }
 

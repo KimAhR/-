@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>끝말잇기</h1>
+    <h2 id="keyword">제시어</h2>
+    <input type="text" id="inputKeyword" />
+    <button id="btnSubmit">등록</button>
+
+    <script>
+      let keyword = document.getElementById("keyword");
+      let inputKeyword = document.getElementById("inputKeyword");
+      let btnSubmit = document.getElementById("btnSubmit");
+
+      let prevList = ["어부"];
+      function checkInput() {
+        let keywordStr = keyword.innerText;
+        // 중복여부 확인
+        // Array.prototype.includes() : 인자로 전달된 값이 배열에 있는지 true, false 반환
+        if (prevList.includes(inputKeyword.value)) {
+          alert("이미 입력된 단어입니다.");
+          return;
+        }
+        // 제시어의 마지막 글자와 입력값의 첫글자가 다르면 함수를 종료.
+        if (keywordStr[keywordStr.length - 1] !== inputKeyword.value[0]) {
+          alert("글자가 다릅니다.");
+          inputKeyword.focus();
+          return;
+        }
+
+        // 위에 조건에 걸리면 제시어가 변경되지 않는다.
+        keyword.innerText = inputKeyword.value;
+        prevList.push(inputKeyword.value);
+        inputKeyword.value = "";
+        inputKeyword.focus(); // 커서를 이동시킨다.
+      }
+
+      btnSubmit.addEventListener("click", checkInput);
+
+      inputKeyword.addEventListener("keydown", function (e) {
+        // 키보드 입력 이벤트에는 입력한 키값을 e.key로 읽을 수 있다.
+        console.log(e.key);
+        if (e.key === "Enter") {
+          checkInput();
+        }
+      });
+    </script>
+  </body>
+</html>
