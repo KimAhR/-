@@ -88,3 +88,11 @@ main .imgList li + li {
 .imgList li a:hover img {
   transform: scale(1.2);
 }
+
+.slieWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 40px;
+  flex-basis: 100px;
+}

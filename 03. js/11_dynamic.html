@@ -8,10 +8,11 @@
         width: 500px;
         border: 3px solid black;
       }
+
       .box {
         width: 100px;
         height: 100px;
-        background-color: red;
+        background: red;
       }
     </style>
   </head>
@@ -21,7 +22,7 @@
       // document.createElement("태그이름") : 요소 노드를 생성한다.
       let divElem = document.createElement("div");
 
-      // document.createElement("속성명") : 속성 노드를 생성한다.
+      // document.createAttribute("속성명") : 속성 노드를 생성한다.
       let classAttr = document.createAttribute("class");
 
       // 생성된 속성노드의 값을 지정.
@@ -53,16 +54,11 @@
       console.log(titleElem.innerText);
       // innerText : 요소의 텍스트 노드값을 가진 프로퍼티. 새로운 값을 할당하면 내용이 변경된다.
       titleElem.innerText += "!";
-      // console.log(document.body.innerText);
 
-      // 요소의 포함된 HTML 내용을 문자열로 변환해서 반환한다.
+      // 요소에 포함된 HTML 내용을 문자열로 변환해서 반환한다.
       console.log(divElem.innerHTML);
       divElem.innerText = '<div class="box"></div>'; // 텍스트 노드로 나타난다.
       divElem.innerHTML = '<div class="box"></div>'; // 문자열을 HTML 요소로 해석해서 나타난다.
-
-      // for (let i = 0; i < 1000; i++) {
-      //   divElem.innerHTML += '<div class="box"></div>';
-      // }
 
       let str = "";
       for (let i = 0; i < 10000; i++) {
@@ -77,20 +73,21 @@
         divElem.appendChild(boxElem);
       }
 
-      //부모노드.removeChild() : 인자로 전달된 자식 노드를 삭제한다. 삭제된 노드를 반환한다.
-      document.body.removeChild(divElem);
-      // document.body.innerHTML = "";
-      console.log(divElem);
-      //노드.remove() : 노드를 삭제한다.
-      divElem.remove();
+      // 부모노드.removeChild() : 인자로 전달된 자식 노드를 삭제한다. 삭제된 노드를 반환한다.
+      let removedChild = document.body.removeChild(divElem);
+      //   document.body.innerHTML = "";
 
-      /*
+      // 노드.revmove() : 노드를 삭제한다.
+      divElem.remove();
+      console.log(divElem);
+
+      /* 
         innerHTML 주의 사항
-          - 반복적으로 업데이트 시 속도가 느려질 수 있다.
-          - 기존의 요소를 지우고 다시 업데이트하는 개념이기 때문에, 
-          기존 요소에  addEventListener가 되어있는 경우 이벤트 리스너가 지워진다.
-             => 모양이 같다할지라도 실제적으로 다른 요소다.
-      */
+            - 반복적으로 업데이트 시 속도가 느려질 수 있다.
+            - 기존의 요소를 지우고 다시 업데이트하는 개념이기 때문에, 
+            기존 요소에 addEventListener가 되어있는 경우 이벤트 리스너가 지워진다.
+                => 모양이 같다할지라도 실제적으로 다른 요소다.
+    */
     </script>
   </body>
 </html>
