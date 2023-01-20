@@ -138,6 +138,27 @@ main .imgList li + li {
   margin: 5px 0;
 }
 
+.btn {
+  width: 50px;
+  height: 50px;
+  border: 3px solid black;
+  border-radius: 50%;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  animation: fade 1s, slideUp 1s;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+  }
+}
+
 /* 800px 보다 작으면 헤더 안보이게 */
 @media (max-width: 800px) {
   #gnbList {

@@ -97,7 +97,7 @@ console.log(user04);
 class Car {
   constructor(color, speed) {
     this.color = color;
-    this.spped = speed;
+    this.speed = speed;
   }
 
   // 프로토타입 메서드 생성 => 함축표현 사용.

@@ -1,0 +1,49 @@
+:root {
+  font-size: 10px;
+}
+
+body {
+  font-family: speedeek;
+  font-weight: 700;
+}
+
+header {
+  background-color: #fff;
+  position: relative;
+  z-index: 10000;
+}
+header .headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 140px;
+}
+header .headerWrapper #gnbList {
+  display: flex;
+  height: 141px;
+}
+header .headerWrapper #gnbList::after {
+  display: none;
+  content: "";
+  width: 100%;
+  height: 300px;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: -1;
+}
+header .headerWrapper #gnbList:hover::after {
+  display: block;
+  border-top: 1px solid #ccc;
+}
+header .headerWrapper #gnbList .depth01 {
+  font-size: 2em;
+}
+header .headerWrapper #gnbList .depth01 a {
+  display: flex;
+  align-items: center;
+  margin-right: 85px;
+  height: 100%;
+  position: relative;
+}/*# sourceMappingURL=style.css.map */
