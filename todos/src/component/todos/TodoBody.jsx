@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import TodoItem from "./TodoItem";
 
-function TodoBody() {
+function TodoBody({ todos, dispatch }) {
   return (
     <Container>
       <ul>
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
+        {todos.map((todo) => (
+          <TodoItem key={todo.Id} todo={todo} dispatch={dispatch} />
+        ))}
       </ul>
     </Container>
   );
