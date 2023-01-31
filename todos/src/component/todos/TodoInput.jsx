@@ -1,11 +1,13 @@
 import { useRef, useState } from "react";
 import styled from "styled-components";
+import { useTodoDispatch } from "../../context/todos";
 
-function TodoInput({ dispatch }) {
+function TodoInput() {
   const [text, setText] = useState("");
   const nextId = useRef(4);
   const inputRef = useRef();
-  //
+
+  const dispatch = useTodoDispatch();
 
   const handleText = (e) => {
     setText(e.target.value);
@@ -63,6 +65,14 @@ const Button = styled.button`
   font-weight: 700;
 
   cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.hover_color};
+  }
+
+  &:active {
+    background-color: ${({ theme }) => theme.colors.active_color};
+  }
 `;
 
 export default TodoInput;

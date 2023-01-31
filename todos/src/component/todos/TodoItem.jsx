@@ -4,8 +4,11 @@ import {
   AiFillCheckCircle,
   AiFillDelete,
 } from "react-icons/ai";
+import { useTodoDispatch } from "../../context/todos";
 
-function TodoItem({ todo, dispatch }) {
+function TodoItem({ todo }) {
+  const dispatch = useTodoDispatch();
+
   const handleToggle = () => {
     dispatch({ type: "TOGGLE_TODO", id: todo.id });
   };
@@ -18,7 +21,7 @@ function TodoItem({ todo, dispatch }) {
   return (
     <Container done={todo.done}>
       <BtnCheck onClick={handleToggle}>
-        {todo.done ? <AiOutlineCheckCircle /> : <AiFillCheckCircle />}
+        {todo.done ? <AiFillCheckCircle /> : <AiOutlineCheckCircle />}
       </BtnCheck>
       <p>{todo.text}</p>
       <BtnDelete>
@@ -37,7 +40,7 @@ const Container = styled.li`
   p {
     flex: 1;
     margin-left: 5px;
-    text-decoration: ${({ done }) => done && "line-through"};
+    text-decoration: ${({ done }) => done && "line-through 1px"};
   }
 `;
 

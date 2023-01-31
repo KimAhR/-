@@ -1,12 +1,15 @@
 import styled from "styled-components";
+import { useTodoDispatch } from "../../context/todos";
 import TodoItem from "./TodoItem";
 
-function TodoBody({ todos, dispatch }) {
+function TodoBody() {
+  const todos = useTodoDispatch();
+
   return (
     <Container>
       <ul>
         {todos.map((todo) => (
-          <TodoItem key={todo.Id} todo={todo} dispatch={dispatch} />
+          <TodoItem key={todo.id} todo={todo} />
         ))}
       </ul>
     </Container>
