@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Box</title>
+    <style>
+      body {
+        border: 1px solid blue;
+      }
+      h1 {
+        border: 1px solid black;
+        margin: 0;
+      }
+
+      .container {
+        font-size: 0;
+
+        /* 단축 속성 */
+        margin: 50px; /* 상,하,좌,우 50px*/
+        margin: 20px 10px; /* 상,하 20px 좌,우 10px*/
+        margin: 10px 30px 20px; /* 상 10px, 좌,우 30px, 하 20px */
+        margin: 10px 20px 30px 40px; /* 상,우,하,좌 순으로 적용(시계방향)*/
+
+        /* 개별 속성 */
+        margin-top: 100px;
+        margin-left: 10px;
+
+        border: 1px solid red;
+      }
+
+      .box {
+        /* display 값 : block, inline, inline-block, none, flex */
+        display: inline-block;
+        width: 200px;
+        height: 50px;
+        background-color: red;
+
+        padding: 20px;
+
+        font-size: 1rem;
+
+        box-sizing: border-box;
+      }
+
+      span {
+        display: inline-block;
+        /* display: none; */
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+        font-size: 1rem;
+
+        border: 3px solid black;
+        border-color: red;
+        border-radius: 50%; /* 모서리를 둥글게 처리. 단축 */
+        border-top-left-radius: 10px; /* 개별 */
+        border-bottom-right-radius: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS 박스</h1>
+    <div class="container">
+      <div class="box">블록</div>
+      <span>인라인</span>
+    </div>
+  </body>
+</html>

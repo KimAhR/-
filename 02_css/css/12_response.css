@@ -1,0 +1,64 @@
+html {
+  font-size: 10px;
+}
+
+:root {
+  /* html과 동일하지만 우선순위가 높다. */
+  font-size: 20px;
+}
+
+body {
+  font-size: 24px; /* 고정 단위. 모니터의 화소수.*/
+}
+
+div {
+  width: 100%; /* 부모 요소에 대한 퍼센트 적용. */
+  font-size: 1.2em; /* 부모 요소의 font-size에 대한 비율 지정. */
+  font-size: 2rem; /* 최상위 요소(html)의 font-size에 대한 비율 지정. */
+}
+
+.container {
+  width: 500px;
+  height: 300px;
+  border: 3px solid black;
+}
+
+.container .box {
+  width: 50vw; /* 뷰포트의 너비에 대한 백분위. 1vw는 뷰포트의 너비 1%. */
+  height: 50vh; /* 뷰포트의 높이 높이에 대한 백분위. 1vh 뷰포트의 높이의 1% */
+  width: 30vmin; /* 뷰포트의 너비와 높이 중 작은 값의 백분위. */
+  height: 50vmax; /* 뷰포트의 너비와 높이 중 큰 값의 백분위. */
+
+  background-color: red;
+}
+
+/* 
+    @media 조건1 and 조건2 {
+        적용하고자 하는 CSS 코드들...
+    } 
+
+    and(그리고) : 두 조건 모두 해당해야한다.
+    or(그리고) : 두 조건 중 하나라도 해당하면 된다.
+    not(부정) : 논리를 반전시킨다.
+
+*/
+@media all and (max-width: 999px) {
+  .container {
+    width: 200px;
+  }
+
+  .container .box {
+    width: 200px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    background-color: #ddd;
+  }
+
+  .container .box {
+    width: 100px;
+    height: 100px;
+  }
+}

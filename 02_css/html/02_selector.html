@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS 선택자</title>
+    <style>
+      /* 전체 선택자 */
+      * {
+        margin: 0;
+      }
+
+      body {
+        color: red;
+      }
+
+      /* 타입(태그) 선택자 */
+      ul {
+        margin-top: 30px;
+        color: blue;
+      }
+
+      /* 클래스 선택자 */
+      .red {
+        color: red;
+      }
+
+      .big {
+        font-size: 30px;
+      }
+
+      p.red {
+        color: lightcoral;
+      }
+
+      /* 아이디 선택자 */
+      #border {
+        border: 1px solid black;
+      }
+
+      /* 자식 선택자 */
+      li > p {
+        font-size: 12px;
+      }
+
+      /* 후손 선택자 */
+      ul p {
+        margin-top: 10px;
+      }
+
+      /* 인접 형제 선택자 */
+      .target + li {
+        background-color: red;
+      }
+
+      /* 두번째부터 마지막 li까지 background-color : blue*/
+      li + li {
+        background-color: #ddd;
+      }
+
+      /* 가상 클래스 선택자 */
+      /* 요소에 마우스가 올라가 있는 동안 */
+      h3:hover {
+        color: black;
+      }
+
+      /* 요소를 클릭하는 동안(마우스를 떼기전까지) */
+      h3:active {
+        color: #ccc;
+      }
+
+      /* 몇번째 자식인지 골라낼수 있다. */
+      li:nth-child(3) {
+        border: 1px solid blue;
+      }
+
+      /* 가상 요소 선택자 */
+      li::before {
+        content: "";
+        display: block;
+        width: 8px;
+        height: 8px;
+        background-color: black;
+      }
+
+      li::after {
+        content: "저는 after입니다.";
+      }
+
+      p#color {
+        color: green;
+      }
+      #color {
+        color: yellow;
+      }
+
+      .color {
+        color: red;
+        color: blue !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS 선택자</h1>
+    <p>
+      CSS 선택자(Selector)란 스타일을 적용하고자 하는 요소를 골라내는 것이다.
+    </p>
+    <h2>선택자의 종류</h2>
+    <ul>
+      <li>
+        <h3 class="big">전체 선택자(*)</h3>
+        <p>
+          전체 선택자는 html 문서내의 모든 요소에 적용한다. 우선 순위 점수가
+          0점이다.
+        </p>
+      </li>
+      <li>
+        <h3 class="red">타입(태그) 선택자</h3>
+        <p>
+          요소 타입(태그명)을 통해서 요소를 선택한다. 문서 내에 있는 해당하는
+          타입의 요소를 모두 선택한다. 우선 순위 점수가 1점이다.
+        </p>
+      </li>
+      <li>
+        <h3 class="red big">클래스 선택자(.)</h3>
+        <p class="red">
+          특정 클래스값을 가진 요소를 모두 선택한다. 클래스 값은 요소의 class
+          속성을 통해서 지정한다. <br />
+          띄어쓰기를 통해서 여러개의 클래스를 지정할 수 있다. <br />
+          같은 클래스 값을 여러 요소가 가질 수 있다. <br />
+          우선 순위 점수는 10점이다.
+        </p>
+      </li>
+      <li class="target">
+        <h3 id="border">아이디 선택자(#)</h3>
+        <p>
+          특정 아이디값을 가진 요소를 선택한다. 아이디 값은 요소의 id 속성을
+          통해서 지정한다. <br />
+          아이디 값은 여러개를 지정할 수 없다. <br />
+          문서 내의 아이디값을 유일해야한다. 우선 순위 점수는 100점이다.
+        </p>
+      </li>
+      <li>
+        <h3>일치 선택자</h3>
+        <p>여러 선택자에 모두 일치하는 요소만을 선택한다.</p>
+      </li>
+      <li>
+        <h3>자식 선택자(>)</h3>
+        <p>
+          특정 요소의 자식요소만을 선택할 수 있다.
+        </p>
+      </li>
+      <li>
+        <h3>후손 선택자</h3>
+        <p>
+          특정 요소의 후손 요소를 모두 선택할 수 있다. 띄어쓰기를 통해서
+          구분한다.
+          <h3></h3>
+        </p>
+      </li>
+      <li>
+        <h3>가상 클래스(:)</h3>
+        <p>
+          특정 조건에 만족했을 때(ex. 요소에 마우스가 올라갔을 때) 가상의
+          클래스가 생긴 것처럼 동작한다.
+        </p>
+      </li>
+      <li>
+        <h3>가상 요소(::)</h3>
+        <p>
+          html 문서에 포함되지 않았지만 디자인적으로 필요할 때 가상으로 요소를
+          만들어낸다.
+        </p>
+      </li>
+    </ul>
+    <h2 id="titile">상속과 우선 순위</h2>
+    <p>글씨와 관련된 속성은 후손 요소에게도 상속된다.</p>
+    !impotant > 인라인 스타일 > id > 클래스 => 타입 => 전체
+    <p class="color" id="color" style="color: darkmagenta">
+      같은 속성에서 값을 여러개를 적용하면 기본적으로 마지막에 적용된 값이
+      적용된다. <br />
+      순서와 상관없이 우선 순위 합산이 높은 선택자의 스타일이 적용된다. <br />
+      인라인 방식은 우선 순위 점수가 1000점이기 때문에 주의해야한다. <br />
+      !important를 사용하면 최우선적으로 적용한다. <br />
+      점수가 같을 때는 마지막에 작성한 코드가 적용된다.
+    </p>
+  </body>
+</html>

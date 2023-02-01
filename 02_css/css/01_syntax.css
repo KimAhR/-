@@ -1,0 +1,5 @@
+/* p태그 색상 파란색 크기는 24px */
+p {
+  font-size: 24px;
+  color: tomato;
+}

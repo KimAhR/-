@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>슬라이더</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      .slideContainer {
+        border: 3px solid black;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .slideWrapper {
+        display: flex;
+        height: 300px;
+        transition: transform 0.4s;
+      }
+
+      .slideItem {
+        /* align-items의 기본값이 stretch기 때문에 slideWrapper만큼 높이가 늘어난다. */
+        width: 100%;
+        flex-shrink: 0;
+      }
+
+      .slideItem:nth-child(1) {
+        background-color: red;
+      }
+
+      .slideItem:nth-child(2) {
+        background-color: yellow;
+      }
+
+      .slideItem:nth-child(3) {
+        background-color: blue;
+      }
+
+      .btnSlide {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        top: 50%;
+        transform: translateY(-50%);
+
+        background: none;
+        border: none;
+        border-radius: 50%;
+
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 50px;
+        height: 50px;
+
+        font-size: 2rem;
+        color: #fff;
+
+        cursor: pointer;
+      }
+
+      .btnSlide.next {
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slideContainer">
+      <ul class="slideWrapper">
+        <li class="slideItem">1</li>
+        <li class="slideItem">2</li>
+        <li class="slideItem">3</li>
+      </ul>
+      <button class="btnSlide prev" data-index="-1">&lt;</button>
+      <button class="btnSlide next" data-index="1">&gt;</button>
+    </div>
+    <div class="btnNum">
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+    </div>
+
+    <script>
+      /*
+        1. 인덱스값 0으로 저장. => 1번 누르면 0, 2번 누르면 1...
+        2. 버튼 누르면 인덱스 변경.
+        3. 변경된 인덱스만큼 이동. => 인덱스를 통한 계산. style속성의 값은 문자열.
+            요소.style.transform = ""
+        */
+
+      let btnList = document.querySelectorAll(".btnNum button");
+      let slideWrapper = document.querySelector(".slideWrapper");
+      let btnSlideList = document.querySelectorAll(".btnSlide");
+
+      let index = 0;
+
+      function changeSlide(num) {
+        index = num;
+        slideWrapper.style.transform = `translate(${index * -100}%)`;
+      }
+
+      /*
+        btnSlideList[0].addEventListener("click", function () {
+            if (index === 0) return;
+            changeSlide(index - 1);
+        });
+
+        btnSlideList[1].addEventListener("click", function () {
+            if (!(index < 2)) return;
+            changeSlide(index + 1);
+        });
+      */
+
+      btnSlideList.forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+          let indexNum = parseInt(e.target.dataset.index);
+          if (indexNum + index < 0 || indexNum + index > 2) return;
+          changeSlide(index + indexNum);
+        });
+      });
+
+      btnList.forEach(function (btn, idx) {
+        btn.addEventListener("click", function () {
+          changeSlide(idx);
+        });
+      });
+
+      //   btnList[0].addEventListener("click", function () {
+      //     slideWrapper.style.transform = "translate(0)";
+      //   });
+
+      //   btnList[1].addEventListener("click", function () {
+      //     slideWrapper.style.transform = "translate(-100%)";
+      //   });
+
+      //   btnList[2].addEventListener("click", function () {
+      //     slideWrapper.style.transform = "translate(-200%)";
+      //   });
+    </script>
+  </body>
+</html>

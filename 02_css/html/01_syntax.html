@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS 문법</title>
+    <style>
+      h3 {
+        font-size: 30px;
+        font-weight: 400;
+      }
+    </style>
+
+    <link rel="stylesheet" href="../css/01_syntax.css" />
+  </head>
+  <body>
+    <h1>CSS 문법</h1>
+
+    <h2>CSS 적용 방법</h2>
+    <ol>
+      <li>
+        <h3>인라인 방식</h3>
+        <p style="color: red">
+          태그의 <span style="color: green">style 속성</span>을 사용해서
+          지정한다. 가독성이 떨어지고 재사용성과 유지보수가 어렵기 때문에 잘
+          사용하지 않는다.
+        </p>
+      </li>
+      <li>
+        <h3>style 태그 방식</h3>
+        <p>
+          style 태그 안에 css 문법에 맞게 스타일을 지정한다. 인라인 방식보다는
+          낫지만, style 태그 역시 html 문서가 길어지고, 재사용성도 떨어져서 잘
+          사용하지 않는다.
+        </p>
+      </li>
+      <li>
+        <h3>외부 파일 연결 방식</h3>
+        <p>
+          외부 파일로 .css 확장로 css 문법에 맞게 작성한다. link 태그를 통해서
+          css 파일을 연결한다.
+        </p>
+      </li>
+    </ol>
+  </body>
+</html>

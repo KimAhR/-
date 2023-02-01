@@ -1,0 +1,51 @@
+body {
+  height: 2000px;
+}
+
+.container {
+  border: 3px solid black;
+  height: 300px;
+  position: relative;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+
+  background-color: red;
+
+  /* position : 요소의 위치를 잡는 기준을 지정. */
+  position: static; /* 기본값. 원래 문서의 흐름대로 위치한다. offset을 지정할 수 없다. */
+  position: relative; /* 원래 문서의 흐름대로 위치한다. offset을 지정하면 자기의 원래 자리를 기준으로 움직인다. */
+  position: absolute; /* 자신 상위 요소들 중 position값이 static이 아닌 요소를 기준으로 잡는다. */
+
+  /* offset */
+  right: 10px;
+  top: 10px;
+}
+
+.box:nth-child(1) {
+  z-index: 1000;
+}
+
+.box:nth-child(2) {
+  top: 30px;
+  background-color: yellow;
+  z-index: 100; /* 포개진 순서를 정할 수 있다. */
+}
+
+.box:nth-child(3) {
+  top: 60px;
+  background-color: blue;
+}
+
+a {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+
+  /* position이 absolute,fixed거나 float된 상태면 inline-block처럼 동작한다. */
+  position: fixed; /* 뷰포트를 기준으로 움직인다. */
+
+  bottom: 50px;
+}

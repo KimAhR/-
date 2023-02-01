@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML 목록 다루기</title>
+  </head>
+  <body>
+    <h1>HTML ol, ul</h1>
+    <h2>ul(Unordered List) 태그 : 순서가 없는 목록</h2>
+    <!-- 주의사항 : ul, ol 모두 자식 요소로는 무조건 li태그만 사용해야한다. -->
+    <ul>
+      <!-- ul 태그 안에 li(List Item) 태그를 사용한다. -->
+      <li>
+        HTML
+        <ul>
+          <li>HTML 구조</li>
+          <li>HTML 문법</li>
+        </ul>
+      </li>
+      <li>
+        CSS
+        <ul>
+          <li>CSS 문법</li>
+          <li>CSS 구조</li>
+        </ul>
+      </li>
+      <li>
+        JavaScript
+        <ul>
+          <li>JavaScript 문법</li>
+          <li>JavaScript 구조</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>ol(Ordered List) : 순서가 있는 목록</h2>
+    <ol type="A" start="3" reversed>
+      <li>
+        물을 끓인다.
+        <ol>
+          <li>물이 완전히 끓을 때까지 기다린다.</li>
+        </ol>
+      </li>
+      <li>떡을 물에 넣는다.</li>
+    </ol>
+  </body>
+</html>

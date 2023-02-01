@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML 미디어</title>
+  </head>
+  <body>
+    <h1>HTML 미디어</h1>
+    <h2>img 태그</h2>
+    <a
+      href="https://namu.wiki/w/%EC%9B%B0%EC%8B%9C%20%EC%BD%94%EA%B8%B0?from=%EC%9B%B0%EC%8B%9C%EC%BD%94%EA%B8%B0"
+      target="_blank"
+    >
+      <img src="./assets/dog_bg.jpg" alt="웰시코기" height="100px" />
+    </a>
+
+    <img src="./assets/pngegg.png" alt="피" width="200px" />
+    <img
+      width="200px"
+      src="http://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg"
+      alt="포메라니안"
+    />
+    <p>
+      img 태그의 src 속성에 파일의 위치를 지정한다. <br />
+      alt 속성은 이미지를 볼 수 없는 상황에서 대체할 텍스트이다.
+    </p>
+    <h2>audio 태그</h2>
+    <audio
+      src="./assets/Ice & Fire - King Canyon.mp3"
+      controls
+      muted
+      loop
+      autoplay
+    ></audio>
+    <p>
+      src 속성으로 파일의 경로를 지정한다. <br />
+      controls는 컨트롤바 유무를 지정한다. <br />
+      muted는 음소거가 된다. <br />
+      loop는 반복재생을 한다. <br />
+      audio 태그는 사용자 경험 때문에 자동재생을 브라우저가 막는다.
+    </p>
+
+    <h2>video 태그</h2>
+    <video
+      src="./assets/ì__í_´ ë³µ ë§_ì_´ ë°_ì_¼ì_¸ì__ - 144728.mp4"
+      height="300px"
+      loop
+      muted
+      autoplay
+    ></video>
+    <p>
+      img 태그와 audio 태그에서 사용하는 속성을 사용하면 된다. <br />
+      음소거 상태에서는 자동재생이 가능하다.
+    </p>
+  </body>
+</html>

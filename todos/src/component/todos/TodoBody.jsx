@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { useTodoDispatch } from "../../context/todos";
+import { useTodoState } from "../../context/todos";
 import TodoItem from "./TodoItem";
 
 function TodoBody() {
-  const todos = useTodoDispatch();
+  const todos = useTodoState();
 
   return (
     <Container>

@@ -10,15 +10,16 @@ function TodoCreate({ dispatch }) {
   const inputRef = useRef();
 
   const handleCreate = (e) => {
-    e.preventDefault(); // 태그의 기본기능 실행 x. 새로고침이 안되게 하는것.
+    e.preventDefault(); // 태그의 기본 기능 실행 x.
     if (text === "") {
-      //빈문자열일 때 , 경고창 출력 후 함수 종료
-      alert("할일을 입력해주세요.");
+      // 빈문자열일 때, 경고창 출력 후 함수 종료.
+      alert("할일을 입력해주세요");
       inputRef.current.focus();
       return;
     }
-    dispatch({ type: "CREAT_TODO", text });
-    setText(""); // 비우는거
+    dispatch({ type: "CREATE_TODO", text });
+    setText("");
+    inputRef.current.focus();
   };
 
   return (

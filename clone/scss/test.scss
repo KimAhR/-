@@ -1,13 +1,14 @@
 // 변수
 $bgColor: green;
-$w: 420px;
+$w: 450px;
 
-//스타일 정의 @include로 포함시킬 수 있다.
+// 스타일 정의. @include로 포함시킬 수 있다.
 @mixin btn-text {
   font-size: 24px;
-  font-weight: 700;
+  weight: 700;
   color: #fff;
 }
+
 .container {
   width: $w;
   height: 300px;
@@ -17,13 +18,16 @@ $w: 420px;
     .box {
       list-style: none;
       background-color: $bgColor;
-      //상위 선택자
+
+      // 상위 선택자
       &:hover {
         background-color: tomato;
       }
+
       &.small {
         width: 200px + 200px;
       }
+
       button {
         @include btn-text();
         border: 1px solid black;

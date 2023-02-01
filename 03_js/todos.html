@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>TODOS</h1>
+    <div class="todoContainer">
+      <div class="inputBox">
+        <form>
+          <input type="text" />
+          <!--  -->
+          <button class="btnSubmit">등록</button>
+        </form>
+      </div>
+      <ul></ul>
+    </div>
+    <script>
+      /*
+            1. 등록 버튼 클릭시 input의 값을 읽어온다.
+            2. ul태그에 input 값을 포함한 li태그를 나타낸다.
+            3. input 내용을 비우고, 포커스를 input 태그로 이동 시킨다.
+        */
+      // 로컬 스토리지 찾아봐서 없으면 빈 배열로 초기화
+      let todoArr = JSON.parse(localStorage.getItem("todos")) || [];
+      // 삼항 연산자를 통해 todoArr가 빈 배열이면 1로, 빈배열이 아니라면 마지막 요소의 아이디값으로
+      let currentId = todoArr.length === 0 ? 1 : todoArr[todoArr.length - 1].id;
+
+      let btnSubmit = document.querySelector(".btnSubmit");
+      let inputTodo = document.querySelector(".inputBox input");
+      let todoList = document.querySelector(".todoContainer ul");
+      let formElem = document.querySelector(".todoContainer form");
+
+      // 초기 화면 렌더링
+      todoArr.forEach((todo) => {
+        render(todo.id, todo.text);
+      });
+
+      // 할일 등록
+      formElem.addEventListener("submit", function (e) {
+        if (inputTodo.value === "") {
+          // 빈문자 입력시 경고창 출력 및 input으로 포커스 이동
+          alert("문자를 입력해주세요");
+          inputTodo.focus();
+          return;
+        }
+        e.preventDefault(); // 요소의 기본 기능을 수행하지 않는다.
+
+        let nextId = ++currentId;
+        todoArr.push({ id: nextId, text: inputTodo.value });
+        render(nextId, inputTodo.value);
+
+        save();
+      });
+
+      // todoArr의 값을 통해 화면에 렌더링
+      function render(id, text) {
+        todoList.innerHTML += `<li>${text}<button data-todo-id=${id}>삭제</button></li>`;
+        inputTodo.value = "";
+        inputTodo.focus();
+
+        // 비효율적인 삭제 처리. => forEach로 일일히 이벤트 리스너 추가.
+        // document.querySelectorAll(".todoContainer ul li").forEach((li) => {
+        //   li.addEventListener("click", function () {
+        //     li.remove();
+        //   });
+        // });
+      }
+
+      // 이벤트 위임을 통한 삭제 기능 구현
+      todoList.addEventListener("click", function (e) {
+        // e.target(이벤트가 실제로 발생한 요소)가 삭제버튼 맞는지 확인.
+        if (e.target.matches(".todoContainer ul li button")) {
+          // 삭제버튼의 부모노드(parentNode)인 li태그를 삭제
+          todoArr = todoArr.filter((todo) => {
+            return todo.id !== parseInt(e.target.dataset.todoId);
+          });
+          e.target.parentNode.remove();
+        }
+      });
+
+      // 브라우저 창 종료 이벤트
+      window.addEventListener("beforeunload", save);
+
+      function save() {
+        localStorage.setItem("todos", JSON.stringify(todoArr));
+      }
+    </script>
+  </body>
+</html>

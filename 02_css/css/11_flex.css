@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex; /* 아이템을 나열하고자 하는 컨테이터 요소에 지정. */
+  flex-direction: row; /* 아이템들이 나열되는 방향을 지정한다. row(기본값. 행방향), column(열방향). */
+  justify-content: center; /* 메인축에 대한 아이템 나열 방법. */
+  /* 교차축에 대한 아이템 나열 방법. */
+  flex-wrap: nowrap; /* 아이템들의 크기 합의 컨테이너보다 커졌을 때 줄바꿈을 할 것인가 지정. */
+
+  /* width: 400px; */
+  height: 300px;
+  border: 3px solid black;
+
+  overflow-x: scroll;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 150px;
+  /* height: 50px; */
+  background-color: red;
+  border: 3px solid yellow;
+
+  flex-basis: 200px; /* 최소너비이자 기준값. 기본값 auto. */
+  /* flex-shrink: 0; */
+}
+
+.item:nth-child(1) {
+  flex-shrink: 3; /* 공간이 부족할때에 아이템을 줄이는 비율. 기본값 1. */
+  flex-grow: 1; /* 공간이 남았을 때 아이템이 늘어나는 비율. 기본값 0.*/
+}
+
+.item:nth-child(2) {
+  flex-grow: 2;
+}
+
+.item:nth-child(3) {
+  flex: 1;
+}

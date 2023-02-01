@@ -1,5 +1,6 @@
+import { useContext, useReducer } from "react";
 import styled from "styled-components";
-import { TodoProvider } from "../../context/todos";
+import { NumContext, TodoProvider, useTodoState } from "../../context/todos";
 import TodoBody from "./TodoBody";
 import TodoHeader from "./TodoHeader";
 import TodoInput from "./TodoInput";

@@ -1,5 +1,5 @@
 // src/context/todos.js
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 
 // createContext(기본값) : 컨텍스트를 만든다.
 //      => Provider 밖에서 useContext를 사용하면 반환되는 값.
@@ -41,11 +41,11 @@ export function TodoProvider({ children }) {
   );
 }
 
-//커스텀 훅 : react 훅들을 조합해서 커스텀으로 훅을 만든다. use로 시작한다.
+// 커스텀 훅 : React 훅들을 조합해서 커스텀으로 훅을 만든다. use로 시작한다.
 export function useTodoState() {
   const context = useContext(TodoStateContext);
 
-  //context가 null일 경우 : Provider 밖이다.
+  // context가 null일 경우 : Provider 밖이다.
   if (!context) throw Error("Provider 없음");
 
   return context;
