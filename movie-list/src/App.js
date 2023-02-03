@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./component/movie_list/Header";
-import MovieDetail from "./component/movie_list/MovieDetail";
-import Home from "./component/movie_list/page/Home";
-import Movie from "./component/movie_list/page/Movie";
-import Person from "./component/movie_list/page/Person";
-import TV from "./component/movie_list/page/TV";
+import Header from "./component/movie-list/Header";
+import MovieDetail from "./component/movie-list/MovieDetail";
+import Home from "./component/movie-list/page/Home";
+import Movie from "./component/movie-list/page/Movie";
+import Person from "./component/movie-list/page/Person";
+import TV from "./component/movie-list/page/TV";
 
 function App() {
   return (

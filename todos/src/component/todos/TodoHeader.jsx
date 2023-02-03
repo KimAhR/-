@@ -13,7 +13,7 @@ function TodoHeader() {
 
   const percentage = (doneCount / todos.length) * 100;
 
-  // useContext(컨텐스트) :  컨텍스트가 value 속성으로 제공하는 값을 반환한다.
+  // useContext(컨텍스트) :  컨텍스트가 value 속성으로 제공하는 값을 반환한다.
   const num = useContext(NumContext);
 
   console.log("num context : ", num);

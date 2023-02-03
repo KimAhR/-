@@ -24,6 +24,7 @@ function Header() {
             </GnbList>
           </NavBar>
         </LeftBox>
+
         <Search />
       </Wrapper>
     </Container>
@@ -36,14 +37,12 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
-
-  /* align-items: stretch; */
+  align-items: center;
   max-width: 900px;
+  height: 60px;
 
   margin: 0 auto;
-
   h1 {
     line-height: 60px;
   }
@@ -60,7 +59,7 @@ const NavBar = styled.nav`
 const GnbList = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: center;
+
   height: 60px;
   li + li {
     margin-left: 20px;
