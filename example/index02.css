@@ -134,19 +134,120 @@ main {
   margin: 5px 0;
 }
 
+.modalBg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 300px;
+
+  background-color: #fff;
+}
+
+.modal .contentBox {
+  flex: 1;
+}
+
+.modal h4 {
+  border-bottom: 1px solid #000;
+  padding: 5px;
+}
+
+p {
+  padding: 5px;
+}
+
+.modalBg.hide {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.modalBg.hide .modal {
+  transform: translateY(100px);
+  transition: transform 0.3s;
+}
+
+.modal .btnBox {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.modal .btnBox button {
+  border: none;
+  outline: none;
+  padding: 5px 20px;
+
+  background-color: #1469a1;
+  color: #fff;
+  font-weight: 500;
+}
+
 /* 800px보다 작으면 헤더 안보이게 */
 @media (max-width: 800px) {
+  nav.on {
+    transform: translate(-100%);
+    transition: transform 0s 0s;
+    opacity: 1;
+  }
+  nav {
+    position: fixed;
+    left: 100%;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    opacity: 0;
+
+    transition: transform 0s 0.4s, opacity 0.2s;
+    transform: translateX(100%);
+  }
+
+  nav.on #gnbList {
+    transform: translateX(0%);
+  }
+
   #gnbList {
     flex-direction: column;
-    align-items: center;
     justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100vh;
+
+    background-color: #fff;
+    /* animation: slide 0.4s reverse; */
+    transition: transform 0.4s;
+    transform: translateX(100%);
   }
 
-  header:hover {
-    max-height: 200px;
+  #gnbList li a {
+    width: auto;
+    justify-content: flex-start;
+    padding: 0 10px;
   }
 
-  header .btnSide {
+  .btnSide {
     display: flex;
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(100%);
   }
 }
