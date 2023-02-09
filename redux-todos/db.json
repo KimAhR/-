@@ -1,0 +1,9 @@
+{
+  "todos": [
+    {
+      "id": 3,
+      "text": "리덕스로 todos 만들기",
+      "done": true
+    }
+  ]
+}
