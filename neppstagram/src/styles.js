@@ -1,6 +1,7 @@
+// src/styles.js
 export const theme = {
   colors: {
-    maing_color: "#0b74ae",
-    bg_color: "#ccc",
+    main_color: "#0b74ae",
+    bd_color: "#ccc",
   },
 };

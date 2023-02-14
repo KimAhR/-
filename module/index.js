@@ -7,3 +7,18 @@ console.log(mathSum(2, 3), PI);
 math();
 
 // PI = 3.141592; import한 값은 변경할 수 없다.
+function solution() {
+  let result = 0;
+  for (let i = 1; i <= 200; i++) {
+    let isPrimeNumber = true;
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
+        isPrimeNumber = false;
+      }
+    }
+    if (isPrimeNumber) {
+      result.push(i);
+    }
+  }
+  return solution;
+}

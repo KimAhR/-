@@ -1,35 +1,24 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import styled, { ThemeProvider } from "styled-components";
-import Header from "./component/common/Header";
+import { useDispatch, useSelector } from "react-redux";
+import { ThemeProvider } from "styled-components";
 import { Router } from "./router";
 import { theme } from "./styles";
+import { useEffect } from "react";
+import { fetchUser } from "./redux/user";
 
 function App() {
-  const navigate = useNavigate();
+  // App이 마운트 되자마자 login 페이지 이동
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    navigate("login");
-  }, []);
+    if (!user.data) dispatch(fetchUser());
+  }, [dispatch, user]);
+
   return (
     <ThemeProvider theme={theme}>
-      <Container>
-        <Header />
-        <Wrapper>
-          <Router />
-        </Wrapper>
-      </Container>
+      <Router />
     </ThemeProvider>
   );
 }
-
-const Container = styled.div`
-  background: #eee;
-  min-height: 100vh;
-`;
-
-const Wrapper = styled.div`
-  max-width: 500px;
-  margin: 0 auto;
-`;
 
 export default App;

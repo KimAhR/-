@@ -1,5 +1,6 @@
 import styled from "styled-components";
-function InptutBox({ children, hide, placeholder }) {
+
+function InputBox({ children, hide, placeholder }) {
   return (
     <Container>
       {hide || <Placeholder>{placeholder}</Placeholder>}
@@ -10,8 +11,9 @@ function InptutBox({ children, hide, placeholder }) {
 
 const Container = styled.div`
   width: 200px;
-  border: 1px solid ${({ theme }) => theme.colors.bg_color};
+  border: 1px solid ${({ theme }) => theme.colors.bd_color};
   position: relative;
+
   height: 25px;
 
   input {
@@ -37,4 +39,4 @@ const Placeholder = styled.div`
   padding: 0 5px;
 `;
 
-export default InptutBox;
+export default InputBox;

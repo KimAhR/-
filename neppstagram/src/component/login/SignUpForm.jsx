@@ -1,21 +1,19 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
-import { getCurrentUser, signIn } from "../../api/auth";
-import { fetchUser } from "../../redux/user";
+import { signUpUser } from "../../api/auth";
 import Button from "../common/Button";
 import Input from "../common/Input";
 
 // LoginForm.jsx
-function LoginForm() {
+function SignUpForm() {
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
+    name: "",
   });
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const handleInputs = (e) => {
     const { name, value } = e.target;
@@ -27,14 +25,25 @@ function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signIn(inputs);
-    dispatch(fetchUser());
+    const data = await signUpUser(inputs);
+
+    if (data.success) {
+      alert("회원가입에 성공했습니다.");
+      navigate("/");
+    }
   };
 
   return (
     <Container>
-      <h2>Login</h2>
+      <h2>SignUp</h2>
       <form onSubmit={handleSubmit}>
+        <Input
+          type="name"
+          value={inputs.name}
+          onChange={handleInputs}
+          name="name"
+          placeholder="이름을 입력하세요."
+        />
         <Input
           type="email"
           value={inputs.email}
@@ -50,9 +59,9 @@ function LoginForm() {
           placeholder="비밀번호를 입력하세요"
         />
         <BtnBox>
-          <Button>Login</Button>
-          <Button type="button" onClick={() => navigate("/signup")}>
-            Signup
+          <Button>SignUp</Button>
+          <Button type="button" bgColor="red" onClick={() => navigate("/")}>
+            Cancel
           </Button>
         </BtnBox>
       </form>
@@ -81,4 +90,4 @@ const BtnBox = styled.div`
   margin-top: 10px;
 `;
 
-export default LoginForm;
+export default SignUpForm;

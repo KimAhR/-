@@ -1,8 +1,13 @@
 import { useState } from "react";
 import styled from "styled-components";
-import InptutBox from "./InptutBox";
-import { AiOutlineSearch, AiOutlineUser, AiOutlineHome } from "react-icons/ai";
+import {
+  AiOutlineSearch,
+  AiOutlineUser,
+  AiOutlineHome,
+  AiOutlineEdit,
+} from "react-icons/ai";
 import { Link } from "react-router-dom";
+import Input from "./Input";
 
 function Header() {
   const [input, setInput] = useState("");
@@ -10,24 +15,36 @@ function Header() {
     <Container>
       <Wrapper>
         <h1>Neppstagram</h1>
-        <InptutBox hide={input !== ""} Placeholder="">
-          <input type="text" onChange={(e) => setInput(e.target.value)} />
-        </InptutBox>
+        <Input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder={
+            <>
+              <AiOutlineSearch />
+              검색
+            </>
+          }
+        />
         <Gnb>
           <GnbList>
             <li>
-              <Link to="home">
+              <Link to="/post">
                 <AiOutlineHome />
               </Link>
             </li>
             <li>
               <Link to="search">
-                <AiOutlineUser />
+                <AiOutlineSearch />
+              </Link>
+            </li>
+            <li>
+              <Link to="post/edit">
+                <AiOutlineEdit />
               </Link>
             </li>
             <li>
               <Link to="profile">
-                <AiOutlineSearch />
+                <AiOutlineUser />
               </Link>
             </li>
           </GnbList>
@@ -39,13 +56,18 @@ function Header() {
 
 const Container = styled.header`
   background-color: #fff;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.bg_color};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.bd_Color};
   padding: 10px 0;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 `;
 
 const Wrapper = styled.div`
   display: flex;
-  align-items: flex-start; //flex-start안해주면 stretch로 기본값이라서 늘어나게됨
+  align-items: flex-start;
   justify-content: space-between;
   max-width: 500px;
   margin: 0 auto;
