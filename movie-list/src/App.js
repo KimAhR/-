@@ -8,7 +8,7 @@ import TV from "./component/movie-list/page/TV";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/kimahreum/movie-list">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
